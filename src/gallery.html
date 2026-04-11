@@ -5,127 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Gallery | Campus Events</title>
     <link rel="stylesheet" href="../styles/style.css">
-    <style>
-        /* Gallery specific styles */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 24px;
-            margin-top: 32px;
-        }
-
-        .gallery-item {
-            background: rgba(255, 255, 255, 0.045);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            transition: all 220ms ease;
-            cursor: pointer;
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-6px);
-            border-color: rgba(109, 94, 252, 0.4);
-            box-shadow: var(--shadow);
-        }
-
-        .gallery-img {
-            width: 100%;
-            aspect-ratio: 4 / 3;
-            background: linear-gradient(135deg, #1a1f2e, #0f1420);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            font-weight: 700;
-            color: rgba(255,255,255,0.3);
-            border-bottom: 1px solid var(--border-soft);
-        }
-
-        .gallery-info {
-            padding: 18px;
-        }
-
-        .gallery-info h3 {
-            font-size: 1.1rem;
-            margin-bottom: 6px;
-        }
-
-        .gallery-info p {
-            color: var(--muted);
-            font-size: 0.9rem;
-        }
-
-        .event-badge {
-            display: inline-block;
-            margin-top: 12px;
-            padding: 4px 12px;
-            background: rgba(109, 94, 252, 0.2);
-            border-radius: 999px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            color: var(--primary-2);
-        }
-
-        /* Lightbox overlay */
-        .lightbox {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.92);
-            backdrop-filter: blur(12px);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            visibility: hidden;
-            opacity: 0;
-            transition: all 200ms ease;
-        }
-        .lightbox.active {
-            visibility: visible;
-            opacity: 1;
-        }
-        .lightbox-content {
-            max-width: 85vw;
-            max-height: 85vh;
-            background: rgba(255,255,255,0.08);
-            border-radius: 24px;
-            padding: 20px;
-            border: 1px solid var(--border);
-        }
-        .lightbox-img {
-            max-width: 100%;
-            max-height: 70vh;
-            border-radius: 16px;
-        }
-        .close-lightbox {
-            position: absolute;
-            top: 24px;
-            right: 32px;
-            font-size: 2rem;
-            cursor: pointer;
-            background: rgba(255,255,255,0.1);
-            width: 48px;
-            height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 999px;
-            transition: all 160ms;
-        }
-        .close-lightbox:hover {
-            background: rgba(255,255,255,0.2);
-        }
-        @media (max-width: 640px) {
-            .gallery-grid {
-                grid-template-columns: 1fr;
-                gap: 18px;
-            }
-        }
-    </style>
 </head>
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -160,20 +39,20 @@
                     <p class="section__subtitle">A glimpse into our vibrant campus events — cultural festivals, tech summits, sports meets, and more.</p>
                 </div>
 
-                <div class="gallery-grid" id="galleryGrid">
-                    <!-- Gallery items will be dynamically injected -->
+                <div class="grid grid--3" id="galleryGrid">
+                    <!-- Gallery items will be inserted here -->
                 </div>
                 
-                <div class="stats" style="margin-top: 48px; justify-content: center;">
-                    <div class="stats__item" style="text-align: center;">
+                <div class="stats">
+                    <div class="stats__item">
                         <div class="stats__label">Events Captured</div>
                         <div class="stats__value">45+</div>
                     </div>
-                    <div class="stats__item" style="text-align: center;">
+                    <div class="stats__item">
                         <div class="stats__label">Happy Attendees</div>
                         <div class="stats__value">2,800+</div>
                     </div>
-                    <div class="stats__item" style="text-align: center;">
+                    <div class="stats__item">
                         <div class="stats__label">Student Clubs</div>
                         <div class="stats__value">18</div>
                     </div>
@@ -181,15 +60,6 @@
             </div>
         </section>
     </main>
-
-    <!-- Lightbox Modal -->
-    <div id="lightbox" class="lightbox">
-        <div class="close-lightbox" id="closeLightbox">✕</div>
-        <div class="lightbox-content">
-            <img id="lightboxImg" class="lightbox-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%231a1f2e'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='48' fill='%23ffffffaa'%3E📸%3C/text%3E%3C/svg%3E" alt="Event photo">
-            <div style="margin-top: 12px; text-align: center; color: var(--muted);" id="lightboxCaption"></div>
-        </div>
-    </div>
 
     <footer class="site-footer" role="contentinfo">
         <div class="container site-footer__inner">
@@ -220,53 +90,42 @@
 
         // Gallery data
         const galleryItems = [
-            { title: "Spring Festival 2025", event: "Cultural Fest", desc: "Students performing traditional dances.", imgLabel: "🎉" },
-            { title: "Tech Summit", event: "Innovation Expo", desc: "Keynote session with industry leaders.", imgLabel: "💻" },
-            { title: "Sports Gala", event: "Annual Sports", desc: "Cricket final match celebration.", imgLabel: "🏆" },
-            { title: "Art & Craft Mela", event: "Creativity Week", desc: "Students showcasing handmade art.", imgLabel: "🎨" },
-            { title: "Music Night", event: "Beats & Eats", desc: "Live bands and food festival.", imgLabel: "🎸" },
-            { title: "Career Fair 2025", event: "Placement Drive", desc: "Networking with top employers.", imgLabel: "🤝" },
-            { title: "Hackathon", event: "CodeFest", desc: "24-hour coding competition.", imgLabel: "⌨️" },
-            { title: "Alumni Meet", event: "Homecoming", desc: "Reconnecting with graduates.", imgLabel: "🎓" }
+            { title: "Spring Festival 2025", category: "Cultural", desc: "Students performing traditional dances at the annual cultural fest.", icon: "🎉" },
+            { title: "Tech Summit 2025", category: "Technology", desc: "Keynote session with industry leaders from top tech companies.", icon: "💻" },
+            { title: "Sports Gala", category: "Sports", desc: "Cricket final match celebration with winning team.", icon: "🏆" },
+            { title: "Art & Craft Mela", category: "Arts", desc: "Students showcasing handmade art and creative projects.", icon: "🎨" },
+            { title: "Music Night", category: "Cultural", desc: "Live bands and food festival under the stars.", icon: "🎸" },
+            { title: "Career Fair 2025", category: "Tech", desc: "Networking with top employers and placement drives.", icon: "🤝" },
+            { title: "Hackathon 2025", category: "Technology", desc: "24-hour coding competition with exciting prizes.", icon: "⌨️" },
+            { title: "Alumni Meet", category: "Cultural", desc: "Reconnecting with graduates and homecoming celebration.", icon: "🎓" },
+            { title: "Basketball Championship", category: "Sports", desc: "Inter-university basketball tournament finals.", icon: "🏀" }
         ];
 
         const gridContainer = document.getElementById('galleryGrid');
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightboxImg');
-        const lightboxCaption = document.getElementById('lightboxCaption');
-        const closeLightbox = document.getElementById('closeLightbox');
 
         function buildGallery() {
             if (!gridContainer) return;
-            galleryItems.forEach((item, idx) => {
-                const galleryDiv = document.createElement('div');
-                galleryDiv.className = 'gallery-item';
-                galleryDiv.setAttribute('data-index', idx);
-                galleryDiv.innerHTML = `
-                    <div class="gallery-img" style="font-size: 3rem;">${item.imgLabel}</div>
-                    <div class="gallery-info">
-                        <h3>${item.title}</h3>
-                        <p>${item.desc}</p>
-                        <span class="event-badge">${item.event}</span>
+            
+            gridContainer.innerHTML = '';
+            
+            galleryItems.forEach((item) => {
+                const card = document.createElement('article');
+                card.className = 'event-card';
+                card.innerHTML = `
+                    <div class="event-card__meta">
+                        <span class="pill pill--purple">${item.category}</span>
+                        <span class="event-card__time" style="font-size: 2rem;">${item.icon}</span>
+                    </div>
+                    <h3 class="event-card__title">${item.title}</h3>
+                    <p class="event-card__body">${item.desc}</p>
+                    <div class="event-card__footer">
+                        <span class="event-card__place">📍 Campus Auditorium</span>
+                        <a href="#" class="event-card__link">View Gallery →</a>
                     </div>
                 `;
-                galleryDiv.addEventListener('click', () => {
-                    lightboxImg.src = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%231a1f2e'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='48' fill='%23ffffffaa'%3E${item.imgLabel}%3C/text%3E%3C/svg%3E`;
-                    lightboxCaption.innerText = `${item.title} — ${item.desc}`;
-                    lightbox.classList.add('active');
-                });
-                gridContainer.appendChild(galleryDiv);
+                gridContainer.appendChild(card);
             });
         }
-
-        function closeLightboxFn() {
-            lightbox.classList.remove('active');
-        }
-
-        if (closeLightbox) closeLightbox.addEventListener('click', closeLightboxFn);
-        lightbox?.addEventListener('click', (e) => {
-            if (e.target === lightbox) closeLightboxFn();
-        });
 
         buildGallery();
     </script>
