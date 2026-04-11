@@ -1,28 +1,28 @@
 {
-  "name": "local-tourism-promotion-website",
-  "version": "1.0.0",
-  "description": "A Local Tourism Promotion Website that highlights popular tourist attractions, travel information, and visitor resources for a selected region. The static website will contain five interlinked HTML pages styled using a shared CSS file and built locally using Parcel.",
-  "keywords": [
-    "npm",
-    "parcel",
-    "html",
-    "docker",
-    "containerization",
-    "devops"
-  ],
-  "homepage": "https://github.com/AbdullahNazir0/local-tourism-promotion-website#readme",
-  "bugs": {
-    "url": "https://github.com/AbdullahNazir0/local-tourism-promotion-website/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/AbdullahNazir0/local-tourism-promotion-website.git"
-  },
-  "license": "ISC",
-  "author": "Abdullah Nazir",
-  "type": "commonjs",
-  "main": "src/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  }
+	"name": "local-tourism-promotion-website",
+	"version": "1.0.0",
+	"description": "A Local Tourism Promotion Website that highlights popular tourist attractions, travel information, and visitor resources for a selected region. The static website will contain five interlinked HTML pages styled using a shared CSS file and built locally using Parcel.",
+	"keywords": [
+		"npm",
+		"parcel",
+		"html",
+		"docker",
+		"containerization",
+		"devops"
+	],
+	"homepage": "https://github.com/AbdullahNazir0/local-tourism-promotion-website#readme",
+	"bugs": {
+		"url": "https://github.com/AbdullahNazir0/local-tourism-promotion-website/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/AbdullahNazir0/local-tourism-promotion-website.git"
+	},
+	"license": "ISC",
+	"author": "Abdullah Nazir",
+	"type": "commonjs",
+	"scripts": {
+		"start": "parcel src/index.html",
+		"build": "parcel build src/index.html"
+	}
 }
