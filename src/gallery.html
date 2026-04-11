@@ -6,7 +6,7 @@
     <title>Gallery | Campus Events</title>
     <link rel="stylesheet" href="../styles/style.css">
 </head>
-<body>
+<body class="page-gallery">
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <header class="site-header" role="banner">
@@ -114,7 +114,7 @@
                 card.innerHTML = `
                     <div class="event-card__meta">
                         <span class="pill pill--purple">${item.category}</span>
-                        <span class="event-card__time" style="font-size: 2rem;">${item.icon}</span>
+                        <span class="event-card__time event-card__time--large">${item.icon}</span>
                     </div>
                     <h3 class="event-card__title">${item.title}</h3>
                     <p class="event-card__body">${item.desc}</p>

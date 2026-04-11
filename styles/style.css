@@ -832,3 +832,14 @@ button {
 	color: rgba(255, 255, 255, 0.62);
 	font-size: 0.92rem;
 }
+
+/* Gallery page specific styles (scoped to .page-gallery) */
+.page-gallery .event-card__time--large {
+	font-size: 2rem;
+	line-height: 1;
+}
+
+.page-gallery #galleryGrid {
+	/* small visual tweak: ensure consistent gap on gallery */
+	gap: 14px;
+}
