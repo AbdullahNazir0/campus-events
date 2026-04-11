@@ -1,0 +1,15 @@
+14
+84C:\Users\abdul\OneDrive\Desktop\assignments\devops\Assignment 2\campus-events\styles134203321245420460 1
+91C:\Users\abdul\OneDrive\Desktop\assignments\devops\Assignment 2\campus-events\.dockerignore134203316494685421 0
+90C:\Users\abdul\OneDrive\Desktop\assignments\devops\Assignment 2\campus-events\package.json134203896717530658 0
+88C:\Users\abdul\OneDrive\Desktop\assignments\devops\Assignment 2\campus-events\.gitignore134203316509333855 0
+93C:\Users\abdul\OneDrive\Desktop\assignments\devops\Assignment 2\campus-events\CONTRIBUTING.md134203330279918169 0
+94C:\Users\abdul\OneDrive\Desktop\assignments\devops\Assignment 2\campus-events\styles\style.css134203891264890122 0
+88C:\Users\abdul\OneDrive\Desktop\assignments\devops\Assignment 2\campus-events\Dockerfile134203315027408873 0
+94C:\Users\abdul\OneDrive\Desktop\assignments\devops\Assignment 2\campus-events\src\gallery.html134203315670578809 0
+87C:\Users\abdul\OneDrive\Desktop\assignments\devops\Assignment 2\campus-events\README.md134203320847867175 0
+81C:\Users\abdul\OneDrive\Desktop\assignments\devops\Assignment 2\campus-events\src134203321244577134 1
+94C:\Users\abdul\OneDrive\Desktop\assignments\devops\Assignment 2\campus-events\src\contact.html134203315796419830 0
+98C:\Users\abdul\OneDrive\Desktop\assignments\devops\Assignment 2\campus-events\src\destination.html134203315494866105 0
+92C:\Users\abdul\OneDrive\Desktop\assignments\devops\Assignment 2\campus-events\src\index.html134203891431743893 0
+95C:\Users\abdul\OneDrive\Desktop\assignments\devops\Assignment 2\campus-events\src\packages.html134203315583218590 0
