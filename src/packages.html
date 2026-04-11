@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta
+			name="description"
+			content="Browse sample campus event packages with schedules, dates, and event details."
+		/>
+		<title>Campus Events | Packages</title>
+		<link rel="stylesheet" href="../styles/style.css" />
+	</head>
+
+	<body>
+		<a class="skip-link" href="#main">Skip to main content</a>
+
+		<header class="site-header" role="banner">
+			<div class="container site-header__inner">
+				<a
+					class="brand"
+					href="./index.html"
+					aria-label="Campus Events home"
+				>
+					<span class="brand__mark" aria-hidden="true">CE</span>
+					<span class="brand__text">Campus Events</span>
+				</a>
+
+				<nav class="nav" aria-label="Primary">
+					<button
+						class="nav__toggle"
+						type="button"
+						aria-controls="primary-nav"
+						aria-expanded="false"
+						data-nav-toggle
+					>
+						<span class="nav__toggle-label">Menu</span>
+					</button>
+
+					<ul class="nav__list" id="primary-nav">
+						<li class="nav__item">
+							<a class="nav__link" href="./index.html">Home</a>
+						</li>
+						<li class="nav__item">
+							<a class="nav__link" href="./destination.html"
+								>Destinations</a
+							>
+						</li>
+						<li class="nav__item">
+							<a
+								class="nav__link nav__link--active"
+								href="./packages.html"
+								aria-current="page"
+								>Packages</a
+							>
+						</li>
+						<li class="nav__item">
+							<a class="nav__link" href="./gallery.html"
+								>Gallery</a
+							>
+						</li>
+						<li class="nav__item">
+							<a class="nav__link" href="./contact.html"
+								>Contact</a
+							>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<main id="main" class="main" role="main">
+			<section class="hero" aria-labelledby="hero-title">
+				<div class="container hero__inner">
+					<div class="hero__content">
+						<p class="hero__eyebrow">Event packages</p>
+						<h1 class="hero__title" id="hero-title">
+							Sample events with dates and details
+						</h1>
+						<p class="hero__subtitle">
+							Explore ready-to-go sample events for this semester.
+							Each package includes a date, venue, and quick overview to
+							help students plan ahead.
+						</p>
+
+						<div
+							class="hero__actions"
+							role="group"
+							aria-label="Primary actions"
+						>
+							<a class="button button--primary" href="#events"
+								>View all packages</a
+							>
+							<a class="button button--ghost" href="./contact.html"
+								>Book a package</a
+							>
+						</div>
+
+						<dl class="stats" aria-label="Package highlights">
+							<div class="stats__item">
+								<dt class="stats__label">Available packages</dt>
+								<dd class="stats__value">5</dd>
+							</div>
+							<div class="stats__item">
+								<dt class="stats__label">Event categories</dt>
+								<dd class="stats__value">4</dd>
+							</div>
+							<div class="stats__item">
+								<dt class="stats__label">Avg. duration</dt>
+								<dd class="stats__value">3 hrs</dd>
+							</div>
+						</dl>
+					</div>
+
+					<aside class="hero__panel" aria-label="Package note">
+						<h2 class="card__title">Planning note</h2>
+						<p class="helper">
+							These are sample events for demonstration. Dates and venues
+							can be customized based on faculty schedules and student
+							club availability.
+						</p>
+					</aside>
+				</div>
+			</section>
+
+			<section class="section" id="events" aria-labelledby="events-title">
+				<div class="container">
+					<div class="section__header">
+						<h2 class="section__title" id="events-title">
+							Event packages list
+						</h2>
+						<p class="section__subtitle">
+							Choose from these sample events with clear dates and details.
+						</p>
+					</div>
+
+					<div class="grid grid--3">
+						<article class="event-card" aria-label="AI Workshop event">
+							<header class="event-card__header">
+								<p class="event-card__meta">
+									<span class="pill pill--blue">Workshop</span>
+									<span class="event-card__time"
+										>Apr 18, 2026 • 10:00 AM</span
+									>
+								</p>
+								<h3 class="event-card__title">
+									AI Tools for Students
+								</h3>
+							</header>
+							<p class="event-card__body">
+								A hands-on training session on productivity, research, and
+								project workflows using modern AI tools.
+							</p>
+							<footer class="event-card__footer">
+								<span class="event-card__place">Innovation Lab</span>
+								<a class="event-card__link" href="./contact.html"
+									>Request package</a
+								>
+							</footer>
+						</article>
+
+						<article
+							class="event-card"
+							aria-label="Startup Pitch Arena event"
+						>
+							<header class="event-card__header">
+								<p class="event-card__meta">
+									<span class="pill pill--purple">Business</span>
+									<span class="event-card__time"
+										>Apr 24, 2026 • 2:30 PM</span
+									>
+								</p>
+								<h3 class="event-card__title">
+									Startup Pitch Arena
+								</h3>
+							</header>
+							<p class="event-card__body">
+								Student teams pitch ideas to a faculty and alumni panel,
+								followed by live mentoring and networking.
+							</p>
+							<footer class="event-card__footer">
+								<span class="event-card__place">Seminar Hall B</span>
+								<a class="event-card__link" href="./contact.html"
+									>Request package</a
+								>
+							</footer>
+						</article>
+
+						<article
+							class="event-card"
+							aria-label="Sports Challenge Day event"
+						>
+							<header class="event-card__header">
+								<p class="event-card__meta">
+									<span class="pill pill--green">Sports</span>
+									<span class="event-card__time"
+										>May 2, 2026 • 9:00 AM</span
+									>
+								</p>
+								<h3 class="event-card__title">
+									Sports Challenge Day
+								</h3>
+							</header>
+							<p class="event-card__body">
+								Inter-department futsal and basketball fixtures with a
+								closing ceremony for winning teams.
+							</p>
+							<footer class="event-card__footer">
+								<span class="event-card__place">Main Sports Ground</span>
+								<a class="event-card__link" href="./contact.html"
+									>Request package</a
+								>
+							</footer>
+						</article>
+
+						<article
+							class="event-card"
+							aria-label="Cultural Evening event"
+						>
+							<header class="event-card__header">
+								<p class="event-card__meta">
+									<span class="pill pill--purple">Cultural</span>
+									<span class="event-card__time"
+										>May 9, 2026 • 5:00 PM</span
+									>
+								</p>
+								<h3 class="event-card__title">Cultural Evening</h3>
+							</header>
+							<p class="event-card__body">
+								Music, drama, and spoken-word performances showcasing
+								student talent from different faculties.
+							</p>
+							<footer class="event-card__footer">
+								<span class="event-card__place"
+									>Auditorium Complex</span
+								>
+								<a class="event-card__link" href="./contact.html"
+									>Request package</a
+								>
+							</footer>
+						</article>
+
+						<article
+							class="event-card"
+							aria-label="Community Service Drive event"
+						>
+							<header class="event-card__header">
+								<p class="event-card__meta">
+									<span class="pill pill--green">Community</span>
+									<span class="event-card__time"
+										>May 16, 2026 • 8:30 AM</span
+									>
+								</p>
+								<h3 class="event-card__title">
+									Community Service Drive
+								</h3>
+							</header>
+							<p class="event-card__body">
+								A volunteer package focused on clean-up, donation
+								collection, and outreach in nearby communities.
+							</p>
+							<footer class="event-card__footer">
+								<span class="event-card__place">City Outreach Hub</span>
+								<a class="event-card__link" href="./contact.html"
+									>Request package</a
+								>
+							</footer>
+						</article>
+					</div>
+
+					<div class="cta">
+						<div class="cta__content">
+							<h3 class="cta__title">Need a custom package?</h3>
+							<p class="cta__text">
+								Share your event goals and expected audience size, and our
+								team will build a tailored campus event plan.
+							</p>
+						</div>
+						<a class="button button--primary" href="./contact.html"
+							>Talk to organizers</a
+						>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<footer class="site-footer" role="contentinfo">
+			<div class="container site-footer__inner">
+				<p class="site-footer__brand">
+					<span class="brand__mark" aria-hidden="true">CE</span>
+					<span class="site-footer__name">Campus Events</span>
+				</p>
+
+				<ul class="footer-links" aria-label="Footer">
+					<li class="footer-links__item">
+						<a class="footer-links__link" href="./gallery.html"
+							>Gallery</a
+						>
+					</li>
+					<li class="footer-links__item">
+						<a class="footer-links__link" href="./packages.html"
+							>Packages</a
+						>
+					</li>
+					<li class="footer-links__item">
+						<a class="footer-links__link" href="./contact.html"
+							>Contact</a
+						>
+					</li>
+				</ul>
+
+				<p class="site-footer__copy">
+					© <span id="year">2026</span> Campus Events. All rights
+					reserved.
+				</p>
+			</div>
+		</footer>
+
+		<script>
+			(function () {
+				const toggle = document.querySelector("[data-nav-toggle]");
+				const nav = document.getElementById("primary-nav");
+
+				if (!toggle || !nav) return;
+
+				const setExpanded = (expanded) => {
+					toggle.setAttribute("aria-expanded", String(expanded));
+					nav.dataset.open = String(expanded);
+				};
+
+				setExpanded(false);
+
+				toggle.addEventListener("click", () => {
+					const expanded =
+						toggle.getAttribute("aria-expanded") === "true";
+					setExpanded(!expanded);
+				});
+
+				const year = document.getElementById("year");
+				if (year) year.textContent = String(new Date().getFullYear());
+			})();
+		</script>
+	</body>
+</html>
