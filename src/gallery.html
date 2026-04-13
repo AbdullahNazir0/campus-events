@@ -1,246 +1,274 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Campus Events — Gallery | Local Tourism & Memories</title>
-  <meta name="description" content="Explore past campus events and local tourism moments. Photo gallery from university festivals, cultural tours, and community gatherings.">
-  <link rel="stylesheet" href="../styles/style.css">
-  <!-- simple inline script for mobile nav toggle + demo gallery lightbox simulation (no external deps) -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Gallery | Campus Events</title>
+    <link rel="stylesheet" href="../styles/style.css">
+    <style>
+        /* Gallery specific styles */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .gallery-item {
+            background: rgba(255, 255, 255, 0.045);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: all 220ms ease;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-6px);
+            border-color: rgba(109, 94, 252, 0.4);
+            box-shadow: var(--shadow);
+        }
+
+        .gallery-img {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            background: linear-gradient(135deg, #1a1f2e, #0f1420);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: 700;
+            color: rgba(255,255,255,0.3);
+            border-bottom: 1px solid var(--border-soft);
+        }
+
+        .gallery-info {
+            padding: 18px;
+        }
+
+        .gallery-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 6px;
+        }
+
+        .gallery-info p {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .event-badge {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 4px 12px;
+            background: rgba(109, 94, 252, 0.2);
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--primary-2);
+        }
+
+        /* Lightbox overlay */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.92);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            visibility: hidden;
+            opacity: 0;
+            transition: all 200ms ease;
+        }
+        .lightbox.active {
+            visibility: visible;
+            opacity: 1;
+        }
+        .lightbox-content {
+            max-width: 85vw;
+            max-height: 85vh;
+            background: rgba(255,255,255,0.08);
+            border-radius: 24px;
+            padding: 20px;
+            border: 1px solid var(--border);
+        }
+        .lightbox-img {
+            max-width: 100%;
+            max-height: 70vh;
+            border-radius: 16px;
+        }
+        .close-lightbox {
+            position: absolute;
+            top: 24px;
+            right: 32px;
+            font-size: 2rem;
+            cursor: pointer;
+            background: rgba(255,255,255,0.1);
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 999px;
+            transition: all 160ms;
+        }
+        .close-lightbox:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        @media (max-width: 640px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+        }
+    </style>
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header class="site-header" role="banner">
+        <div class="container site-header__inner">
+            <a href="index.html" class="brand">
+                <span class="brand__mark">CE</span>
+                <span class="brand__text">Campus Events</span>
+            </a>
+            <nav class="nav" aria-label="Main navigation">
+                <button class="nav__toggle" aria-label="Menu" aria-expanded="false">
+                    <span class="nav__toggle-label">Menu</span>
+                </button>
+                <ul class="nav__list" data-open="false">
+                    <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
+                    <li class="nav__item"><a href="destination.html" class="nav__link">Destination</a></li>
+                    <li class="nav__item"><a href="packages.html" class="nav__link">Packages</a></li>
+                    <li class="nav__item"><a href="gallery.html" class="nav__link nav__link--active">Gallery</a></li>
+                    <li class="nav__item"><a href="contact.html" class="nav__link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-  <header class="site-header">
-    <div class="container site-header__inner">
-      <a href="index.html" class="brand" aria-label="Campus Events homepage">
-        <span class="brand__mark">CE</span>
-        <span class="brand__text">Campus Events</span>
-      </a>
+    <main id="main-content" class="main">
+        <section class="section">
+            <div class="container">
+                <div class="section__header">
+                    <span class="hero__eyebrow">Moments & Memories</span>
+                    <h1 class="section__title">Event Gallery</h1>
+                    <p class="section__subtitle">A glimpse into our vibrant campus events — cultural festivals, tech summits, sports meets, and more.</p>
+                </div>
 
-      <nav class="nav" aria-label="Main navigation">
-        <button class="nav__toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
-          <span class="nav__toggle-label">Menu</span>
-        </button>
-        <ul class="nav__list" id="navList" data-open="false">
-          <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
-          <li class="nav__item"><a href="destination.html" class="nav__link">Destination</a></li>
-          <li class="nav__item"><a href="packages.html" class="nav__link">Packages</a></li>
-          <li class="nav__item"><a href="gallery.html" class="nav__link nav__link--active">Gallery</a></li>
-          <li class="nav__item"><a href="contact.html" class="nav__link">Contact</a></li>
-        </ul>
-      </nav>
+                <div class="gallery-grid" id="galleryGrid">
+                    <!-- Gallery items will be dynamically injected -->
+                </div>
+                
+                <div class="stats" style="margin-top: 48px; justify-content: center;">
+                    <div class="stats__item" style="text-align: center;">
+                        <div class="stats__label">Events Captured</div>
+                        <div class="stats__value">45+</div>
+                    </div>
+                    <div class="stats__item" style="text-align: center;">
+                        <div class="stats__label">Happy Attendees</div>
+                        <div class="stats__value">2,800+</div>
+                    </div>
+                    <div class="stats__item" style="text-align: center;">
+                        <div class="stats__label">Student Clubs</div>
+                        <div class="stats__value">18</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <div class="close-lightbox" id="closeLightbox">✕</div>
+        <div class="lightbox-content">
+            <img id="lightboxImg" class="lightbox-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%231a1f2e'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='48' fill='%23ffffffaa'%3E📸%3C/text%3E%3C/svg%3E" alt="Event photo">
+            <div style="margin-top: 12px; text-align: center; color: var(--muted);" id="lightboxCaption"></div>
+        </div>
     </div>
-  </header>
 
-  <main id="main-content" class="main">
-    <!-- Hero section for gallery -->
-    <section class="hero">
-      <div class="container hero__inner">
-        <div class="hero__content">
-          <div class="hero__eyebrow">Moments & memories</div>
-          <h1 class="hero__title">Past events <br> photo gallery</h1>
-          <p class="hero__subtitle">Relive the energy of our campus festivals, local tours, and cultural celebrations. Every image tells a story from our tourism promotion journey.</p>
+    <footer class="site-footer" role="contentinfo">
+        <div class="container site-footer__inner">
+            <div class="site-footer__brand">
+                <span class="brand__mark">CE</span>
+                <span class="site-footer__name">Campus Events — Explore & Connect</span>
+            </div>
+            <ul class="footer-links">
+                <li><a href="#" class="footer-links__link">Privacy</a></li>
+                <li><a href="#" class="footer-links__link">Terms</a></li>
+                <li><a href="contact.html" class="footer-links__link">Contact</a></li>
+            </ul>
+            <p class="site-footer__copy">© 2026 Campus Events. All rights reserved.</p>
         </div>
-        <div class="hero__panel">
-          <div class="stats">
-            <div class="stats__item">
-              <div class="stats__label">Events captured</div>
-              <div class="stats__value">24+</div>
-            </div>
-            <div class="stats__item">
-              <div class="stats__label">Student photographers</div>
-              <div class="stats__value">12</div>
-            </div>
-            <div class="stats__item">
-              <div class="stats__label">Cities featured</div>
-              <div class="stats__value">5</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    </footer>
 
-    <!-- gallery grid section (image cards) -->
-    <section class="section">
-      <div class="container">
-        <div class="section__header">
-          <h2 class="section__title">Explore event highlights</h2>
-          <p class="section__subtitle">From spring cultural fest to heritage walks — immersive moments across campus and local tourism spots.</p>
-        </div>
+    <script>
+        // Mobile nav toggle
+        const toggle = document.querySelector('.nav__toggle');
+        const navList = document.querySelector('.nav__list');
+        if (toggle && navList) {
+            toggle.addEventListener('click', () => {
+                const isOpen = navList.getAttribute('data-open') === 'true';
+                navList.setAttribute('data-open', !isOpen);
+                toggle.setAttribute('aria-expanded', !isOpen);
+            });
+        }
 
-        <div class="grid grid--3" id="galleryGrid">
-          <!-- gallery card 1 -->
-          <article class="event-card gallery-card" data-category="festival">
-            <div class="event-card__meta">
-              <span class="pill pill--purple">Cultural fest</span>
-              <span class="event-card__time">March 2025</span>
-            </div>
-            <div class="gallery-img-placeholder">
-              <div class="gallery-thumb" style="background: linear-gradient(145deg, #2a234a, #151b2e); border-radius: 14px; min-height: 180px; display: flex; align-items: center; justify-content: center; flex-direction: column;">
-                <span style="font-size: 3rem;">🎭</span>
-                <span style="margin-top: 12px; font-weight: 500;">Spring Fusion 2025</span>
-              </div>
-            </div>
-            <h3 class="event-card__title">Spring Fusion 2025</h3>
-            <p class="event-card__body">Live performances, traditional stalls, and a vibrant parade — over 800 attendees celebrated diversity.</p>
-            <div class="event-card__footer">
-              <span class="event-card__place">📍 Main quad & amphitheater</span>
-              <a href="#" class="event-card__link" aria-label="View details about Spring Fusion 2025">View gallery →</a>
-            </div>
-          </article>
+        // Gallery data
+        const galleryItems = [
+            { title: "Spring Festival 2025", event: "Cultural Fest", desc: "Students performing traditional dances.", imgLabel: "🎉" },
+            { title: "Tech Summit", event: "Innovation Expo", desc: "Keynote session with industry leaders.", imgLabel: "💻" },
+            { title: "Sports Gala", event: "Annual Sports", desc: "Cricket final match celebration.", imgLabel: "🏆" },
+            { title: "Art & Craft Mela", event: "Creativity Week", desc: "Students showcasing handmade art.", imgLabel: "🎨" },
+            { title: "Music Night", event: "Beats & Eats", desc: "Live bands and food festival.", imgLabel: "🎸" },
+            { title: "Career Fair 2025", event: "Placement Drive", desc: "Networking with top employers.", imgLabel: "🤝" },
+            { title: "Hackathon", event: "CodeFest", desc: "24-hour coding competition.", imgLabel: "⌨️" },
+            { title: "Alumni Meet", event: "Homecoming", desc: "Reconnecting with graduates.", imgLabel: "🎓" }
+        ];
 
-          <!-- gallery card 2 -->
-          <article class="event-card gallery-card" data-category="tourism">
-            <div class="event-card__meta">
-              <span class="pill pill--green">Heritage walk</span>
-              <span class="event-card__time">Jan 2025</span>
-            </div>
-            <div class="gallery-img-placeholder">
-              <div class="gallery-thumb" style="background: linear-gradient(145deg, #1f3b2c, #0f1a1f); border-radius: 14px; min-height: 180px; display: flex; align-items: center; justify-content: center; flex-direction: column;">
-                <span style="font-size: 3rem;">🏛️</span>
-                <span style="margin-top: 12px; font-weight: 500;">Old Town Tour</span>
-              </div>
-            </div>
-            <h3 class="event-card__title">Old Town heritage walk</h3>
-            <p class="event-card__body">Exploring hidden alleys, historic landmarks & local cuisine — a collaboration with tourism board.</p>
-            <div class="event-card__footer">
-              <span class="event-card__place">📍 Alhamra Art Center</span>
-              <a href="#" class="event-card__link" aria-label="Details Old Town walk">View gallery →</a>
-            </div>
-          </article>
+        const gridContainer = document.getElementById('galleryGrid');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxCaption = document.getElementById('lightboxCaption');
+        const closeLightbox = document.getElementById('closeLightbox');
 
-          <!-- gallery card 3 -->
-          <article class="event-card gallery-card" data-category="campus">
-            <div class="event-card__meta">
-              <span class="pill pill--blue">Tech summit</span>
-              <span class="event-card__time">Nov 2024</span>
-            </div>
-            <div class="gallery-img-placeholder">
-              <div class="gallery-thumb" style="background: linear-gradient(145deg, #152a3e, #0c111f); border-radius: 14px; min-height: 180px; display: flex; align-items: center; justify-content: center; flex-direction: column;">
-                <span style="font-size: 3rem;">💻</span>
-                <span style="margin-top: 12px; font-weight: 500;">Innovation Summit</span>
-              </div>
-            </div>
-            <h3 class="event-card__title">Campus innovation summit</h3>
-            <p class="event-card__body">Keynotes, startup pitches & VR demos. Connecting students with industry leaders.</p>
-            <div class="event-card__footer">
-              <span class="event-card__place">📍 Business school atrium</span>
-              <a href="#" class="event-card__link">View gallery →</a>
-            </div>
-          </article>
+        function buildGallery() {
+            if (!gridContainer) return;
+            galleryItems.forEach((item, idx) => {
+                const galleryDiv = document.createElement('div');
+                galleryDiv.className = 'gallery-item';
+                galleryDiv.setAttribute('data-index', idx);
+                galleryDiv.innerHTML = `
+                    <div class="gallery-img" style="font-size: 3rem;">${item.imgLabel}</div>
+                    <div class="gallery-info">
+                        <h3>${item.title}</h3>
+                        <p>${item.desc}</p>
+                        <span class="event-badge">${item.event}</span>
+                    </div>
+                `;
+                galleryDiv.addEventListener('click', () => {
+                    lightboxImg.src = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%231a1f2e'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='48' fill='%23ffffffaa'%3E${item.imgLabel}%3C/text%3E%3C/svg%3E`;
+                    lightboxCaption.innerText = `${item.title} — ${item.desc}`;
+                    lightbox.classList.add('active');
+                });
+                gridContainer.appendChild(galleryDiv);
+            });
+        }
 
-          <!-- gallery card 4 -->
-          <article class="event-card gallery-card" data-category="tourism">
-            <div class="event-card__meta">
-              <span class="pill pill--green">Nature retreat</span>
-              <span class="event-card__time">Apr 2025</span>
-            </div>
-            <div class="gallery-img-placeholder">
-              <div class="gallery-thumb" style="background: linear-gradient(145deg, #1e3a2f, #0a1f1a); border-radius: 14px; min-height: 180px; display: flex; align-items: center; justify-content: center; flex-direction: column;">
-                <span style="font-size: 3rem;">🌿</span>
-                <span style="margin-top: 12px; font-weight: 500;">Lakeview Eco Tour</span>
-              </div>
-            </div>
-            <h3 class="event-card__title">Lakeview eco retreat</h3>
-            <p class="event-card__body">Kayaking, birdwatching, and sustainability workshops — promoting eco-tourism in the region.</p>
-            <div class="event-card__footer">
-              <span class="event-card__place">📍 Safari Zoo</span>
-              <a href="#" class="event-card__link">View gallery →</a>
-            </div>
-          </article>
+        function closeLightboxFn() {
+            lightbox.classList.remove('active');
+        }
 
-          <!-- gallery card 5 -->
-          <article class="event-card gallery-card" data-category="festival">
-            <div class="event-card__meta">
-              <span class="pill pill--purple">Music festival</span>
-              <span class="event-card__time">Feb 2025</span>
-            </div>
-            <div class="gallery-img-placeholder">
-              <div class="gallery-thumb" style="background: linear-gradient(145deg, #2e1a36, #181128); border-radius: 14px; min-height: 180px; display: flex; align-items: center; justify-content: center; flex-direction: column;">
-                <span style="font-size: 3rem;">🎸</span>
-                <span style="margin-top: 12px; font-weight: 500;">Campus Beats Fest</span>
-              </div>
-            </div>
-            <h3 class="event-card__title">Campus Beats 2025</h3>
-            <p class="event-card__body">Student bands, DJ nights, and art installations — the biggest musical celebration.</p>
-            <div class="event-card__footer">
-              <span class="event-card__place">📍 Amphitheater</span>
-              <a href="#" class="event-card__link">View gallery →</a>
-            </div>
-          </article>
-
-          <!-- gallery card 6 -->
-          <article class="event-card gallery-card" data-category="campus">
-            <div class="event-card__meta">
-              <span class="pill pill--blue">International fair</span>
-              <span class="event-card__time">Oct 2024</span>
-            </div>
-            <div class="gallery-img-placeholder">
-              <div class="gallery-thumb" style="background: linear-gradient(145deg, #1e2a47, #0b0f1c); border-radius: 14px; min-height: 180px; display: flex; align-items: center; justify-content: center; flex-direction: column;">
-                <span style="font-size: 3rem;">🌍</span>
-                <span style="margin-top: 12px; font-weight: 500;">Global Village</span>
-              </div>
-            </div>
-            <h3 class="event-card__title">Global village fair</h3>
-            <p class="event-card__body">Cultural exchange, food stalls, traditional performances from 20+ countries.</p>
-            <div class="event-card__footer">
-              <span class="event-card__place">📍 Student union hall</span>
-              <a href="#" class="event-card__link">View gallery →</a>
-            </div>
-          </article>
-        </div>
-
-        <div class="cta" style="margin-top: 48px;">
-          <div>
-            <h3 class="cta__title">Share your moments with us</h3>
-            <div class="cta__text">Tag us @campusevents or use #CampusTourism — your photos could be featured in our next gallery exhibition!</div>
-          </div>
-          <a href="contact.html" class="button button--primary">Contribute →</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container site-footer__inner">
-      <div class="site-footer__brand">
-        <span class="brand__mark" style="width: 32px; height: 32px;">CE</span>
-        <span class="site-footer__name">Campus Events · Local Tourism Hub</span>
-      </div>
-      <ul class="footer-links">
-        <li><a href="index.html" class="footer-links__link">Home</a></li>
-        <li><a href="destination.html" class="footer-links__link">Destinations</a></li>
-        <li><a href="packages.html" class="footer-links__link">Packages</a></li>
-        <li><a href="gallery.html" class="footer-links__link">Gallery</a></li>
-        <li><a href="contact.html" class="footer-links__link">Contact</a></li>
-      </ul>
-      <p class="site-footer__copy">© 2026 Campus Events — promoting local tourism & student experiences</p>
-    </div>
-  </footer>
-
-  <script>
-    (function() {
-      // Mobile nav toggle functionality
-      const navToggle = document.getElementById('navToggle');
-      const navList = document.getElementById('navList');
-      if (navToggle && navList) {
-        navToggle.addEventListener('click', () => {
-          const isOpen = navList.getAttribute('data-open') === 'true';
-          navList.setAttribute('data-open', isOpen ? 'false' : 'true');
-          navToggle.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+        if (closeLightbox) closeLightbox.addEventListener('click', closeLightboxFn);
+        lightbox?.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightboxFn();
         });
-        // close on link click for better mobile experience
-        const navLinks = navList.querySelectorAll('.nav__link');
-        navLinks.forEach(link => {
-          link.addEventListener('click', () => {
-            navList.setAttribute('data-open', 'false');
-            navToggle.setAttribute('aria-expanded', 'false');
-          });
-        });
-      }
-    })();
-  </script>
+
+        buildGallery();
+    </script>
 </body>
 </html>
