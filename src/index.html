@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta
+			name="description"
+			content="Discover campus event categories, explore what's happening, and find events that match your interests."
+		/>
+		<title>Campus Events | Categories</title>
+		<link rel="stylesheet" href="../styles/style.css" />  
+	</head>
+
+	<body>
+		<a class="skip-link" href="#main">Skip to main content</a>
+
+		<header class="site-header" role="banner">
+			<div class="container site-header__inner">
+				<a
+					class="brand"
+					href="./index.html"
+					aria-label="Campus Events home"
+				>
+					<span class="brand__mark" aria-hidden="true">CE</span>
+					<span class="brand__text">Campus Events</span>
+				</a>
+
+				<nav class="nav" aria-label="Primary">
+					<button
+						class="nav__toggle"
+						type="button"
+						aria-controls="primary-nav"
+						aria-expanded="false"
+						data-nav-toggle
+					>
+						<span class="nav__toggle-label">Menu</span>
+					</button>
+
+					<ul class="nav__list" id="primary-nav">
+						<li class="nav__item">
+							<a
+								class="nav__link nav__link--active"
+								href="./index.html"
+								aria-current="page"
+								>Home</a
+							>
+						</li>
+						<li class="nav__item">
+							<a class="nav__link" href="./destination.html"
+								>Destinations</a
+							>
+						</li>
+						<li class="nav__item">
+							<a class="nav__link" href="./packages.html"
+								>Packages</a
+							>
+						</li>
+						<li class="nav__item">
+							<a class="nav__link" href="./gallery.html"
+								>Gallery</a
+							>
+						</li>
+						<li class="nav__item">
+							<a class="nav__link" href="./contact.html"
+								>Contact</a
+							>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<main id="main" class="main" role="main">
+			<section class="hero" aria-labelledby="hero-title">
+				<div class="container hero__inner">
+					<div class="hero__content">
+						<p class="hero__eyebrow">Find your next event</p>
+						<h1 class="hero__title" id="hero-title">
+							Explore event categories on campus
+						</h1>
+						<p class="hero__subtitle">
+							From hack nights and workshops to sports, arts, and
+							volunteer opportunities—browse categories and jump
+							into what you love.
+						</p>
+
+						<div
+							class="hero__actions"
+							role="group"
+							aria-label="Primary actions"
+						>
+							<a class="button button--primary" href="#categories"
+								>Browse categories</a
+							>
+							<a class="button button--ghost" href="#featured"
+								>See featured</a
+							>
+						</div>
+
+						<dl class="stats" aria-label="Highlights">
+							<div class="stats__item">
+								<dt class="stats__label">Categories</dt>
+								<dd class="stats__value">8</dd>
+							</div>
+							<div class="stats__item">
+								<dt class="stats__label">Weekly events</dt>
+								<dd class="stats__value">25+</dd>
+							</div>
+							<div class="stats__item">
+								<dt class="stats__label">Student clubs</dt>
+								<dd class="stats__value">60+</dd>
+							</div>
+						</dl>
+					</div>
+
+					<aside class="hero__panel" aria-label="Quick filters">
+						<h2 class="card__title">Quick filters</h2>
+
+						<form class="filters" action="#" method="get">
+							<div class="field">
+								<label class="field__label" for="q"
+									>Search</label
+								>
+								<input
+									class="field__control"
+									id="q"
+									name="q"
+									type="search"
+									placeholder="Try “workshop”, “music”, “football”…"
+								/>
+							</div>
+
+							<div class="field">
+								<label class="field__label" for="when"
+									>When</label
+								>
+								<select
+									class="field__control"
+									id="when"
+									name="when"
+								>
+									<option value="any">Any time</option>
+									<option value="today">Today</option>
+									<option value="week">This week</option>
+									<option value="month">This month</option>
+								</select>
+							</div>
+
+							<div class="field">
+								<label class="field__label" for="campus"
+									>Campus</label
+								>
+								<select
+									class="field__control"
+									id="campus"
+									name="campus"
+								>
+									<option value="all">All locations</option>
+									<option value="north">North campus</option>
+									<option value="central">
+										Central campus
+									</option>
+									<option value="south">South campus</option>
+								</select>
+							</div>
+
+							<button
+								class="button button--secondary"
+								type="submit"
+							>
+								Apply
+							</button>
+
+							<p class="helper">
+								Tip: Use the categories below to discover events
+								that match your interests.
+							</p>
+						</form>
+					</aside>
+				</div>
+			</section>
+
+			<section
+				class="section"
+				id="featured"
+				aria-labelledby="featured-title"
+			>
+				<div class="container">
+					<div class="section__header">
+						<h2 class="section__title" id="featured-title">
+							Featured this week
+						</h2>
+						<p class="section__subtitle">
+							A curated snapshot—popular events and fresh
+							opportunities to join.
+						</p>
+					</div>
+
+					<div class="grid grid--3">
+						<article
+							class="event-card"
+							aria-label="Featured event: Tech Talk Night"
+						>
+							<header class="event-card__header">
+								<p class="event-card__meta">
+									<span class="pill pill--blue">Tech</span>
+									<span class="event-card__time"
+										>Thu • 6:00 PM</span
+									>
+								</p>
+								<h3 class="event-card__title">
+									Tech Talk Night
+								</h3>
+							</header>
+							<p class="event-card__body">
+								Lightning talks, demos, and networking. Bring a
+								project or just bring curiosity.
+							</p>
+							<footer class="event-card__footer">
+								<span class="event-card__place"
+									>Innovation Lab</span
+								>
+								<a class="event-card__link" href="#categories"
+									>Explore Tech category</a
+								>
+							</footer>
+						</article>
+
+						<article
+							class="event-card"
+							aria-label="Featured event: Open Mic & Coffee"
+						>
+							<header class="event-card__header">
+								<p class="event-card__meta">
+									<span class="pill pill--purple">Arts</span>
+									<span class="event-card__time"
+										>Fri • 5:30 PM</span
+									>
+								</p>
+								<h3 class="event-card__title">
+									Open Mic & Coffee
+								</h3>
+							</header>
+							<p class="event-card__body">
+								Poetry, music, and stories in a cozy setting.
+								Perform or cheer on your friends.
+							</p>
+							<footer class="event-card__footer">
+								<span class="event-card__place"
+									>Student Center</span
+								>
+								<a class="event-card__link" href="#categories"
+									>Explore Arts category</a
+								>
+							</footer>
+						</article>
+
+						<article
+							class="event-card"
+							aria-label="Featured event: Volunteering Drive"
+						>
+							<header class="event-card__header">
+								<p class="event-card__meta">
+									<span class="pill pill--green"
+										>Community</span
+									>
+									<span class="event-card__time"
+										>Sat • 9:00 AM</span
+									>
+								</p>
+								<h3 class="event-card__title">
+									Community Volunteering Drive
+								</h3>
+							</header>
+							<p class="event-card__body">
+								Make an impact in a few hours. Transport is
+								provided—sign up and show up.
+							</p>
+							<footer class="event-card__footer">
+								<span class="event-card__place">Main Gate</span>
+								<a class="event-card__link" href="#categories"
+									>Explore Community category</a
+								>
+							</footer>
+						</article>
+					</div>
+				</div>
+			</section>
+
+			<section
+				class="section section--muted"
+				id="categories"
+				aria-labelledby="categories-title"
+			>
+				<div class="container">
+					<div class="section__header">
+						<h2 class="section__title" id="categories-title">
+							Browse categories
+						</h2>
+						<p class="section__subtitle">
+							Pick a category to quickly navigate to events that
+							match your interests.
+						</p>
+					</div>
+
+					<div class="grid grid--4 categories" role="list">
+						<a
+							class="category-card"
+							href="#"
+							role="listitem"
+							aria-label="Technology events category"
+						>
+							<span class="category-card__icon" aria-hidden="true"
+								>⌘</span
+							>
+							<span class="category-card__title">Technology</span>
+							<span class="category-card__desc"
+								>Hackathons, talks, coding nights</span
+							>
+						</a>
+
+						<a
+							class="category-card"
+							href="#"
+							role="listitem"
+							aria-label="Workshops events category"
+						>
+							<span class="category-card__icon" aria-hidden="true"
+								>🛠</span
+							>
+							<span class="category-card__title">Workshops</span>
+							<span class="category-card__desc"
+								>Skill-building, hands-on sessions</span
+							>
+						</a>
+
+						<a
+							class="category-card"
+							href="#"
+							role="listitem"
+							aria-label="Sports events category"
+						>
+							<span class="category-card__icon" aria-hidden="true"
+								>🏀</span
+							>
+							<span class="category-card__title">Sports</span>
+							<span class="category-card__desc"
+								>Matches, training, tournaments</span
+							>
+						</a>
+
+						<a
+							class="category-card"
+							href="#"
+							role="listitem"
+							aria-label="Arts events category"
+						>
+							<span class="category-card__icon" aria-hidden="true"
+								>🎭</span
+							>
+							<span class="category-card__title">Arts</span>
+							<span class="category-card__desc"
+								>Music, theater, exhibitions</span
+							>
+						</a>
+
+						<a
+							class="category-card"
+							href="#"
+							role="listitem"
+							aria-label="Clubs events category"
+						>
+							<span class="category-card__icon" aria-hidden="true"
+								>👥</span
+							>
+							<span class="category-card__title">Clubs</span>
+							<span class="category-card__desc"
+								>Meetups, orientations, socials</span
+							>
+						</a>
+
+						<a
+							class="category-card"
+							href="#"
+							role="listitem"
+							aria-label="Career events category"
+						>
+							<span class="category-card__icon" aria-hidden="true"
+								>💼</span
+							>
+							<span class="category-card__title">Career</span>
+							<span class="category-card__desc"
+								>Fairs, mentorship, mock interviews</span
+							>
+						</a>
+
+						<a
+							class="category-card"
+							href="#"
+							role="listitem"
+							aria-label="Wellness events category"
+						>
+							<span class="category-card__icon" aria-hidden="true"
+								>🧘</span
+							>
+							<span class="category-card__title">Wellness</span>
+							<span class="category-card__desc"
+								>Yoga, talks, mental health support</span
+							>
+						</a>
+
+						<a
+							class="category-card"
+							href="#"
+							role="listitem"
+							aria-label="Community events category"
+						>
+							<span class="category-card__icon" aria-hidden="true"
+								>🌿</span
+							>
+							<span class="category-card__title">Community</span>
+							<span class="category-card__desc"
+								>Volunteering, causes, outreach</span
+							>
+						</a>
+					</div>
+
+					<div class="cta">
+						<div class="cta__content">
+							<h3 class="cta__title">Organizing an event?</h3>
+							<p class="cta__text">
+								Share details early to reach more students and
+								help everyone plan their week.
+							</p>
+						</div>
+						<a class="button button--primary" href="./contact.html"
+							>Get in touch</a
+						>
+					</div>
+				</div>
+			</section>
+
+			<section class="section" aria-labelledby="faq-title">
+				<div class="container">
+					<div class="section__header">
+						<h2 class="section__title" id="faq-title">
+							Good to know
+						</h2>
+						<p class="section__subtitle">
+							Quick answers for newcomers.
+						</p>
+					</div>
+
+					<div class="grid grid--2">
+						<article class="info-card">
+							<h3 class="info-card__title">Are events free?</h3>
+							<p class="info-card__text">
+								Most campus events are free. Some workshops or
+								trips may require a small fee to cover
+								materials.
+							</p>
+						</article>
+
+						<article class="info-card">
+							<h3 class="info-card__title">
+								Do I need to register?
+							</h3>
+							<p class="info-card__text">
+								Registration depends on the event capacity.
+								Check the event listing for details.
+							</p>
+						</article>
+
+						<article class="info-card">
+							<h3 class="info-card__title">
+								Can I bring friends?
+							</h3>
+							<p class="info-card__text">
+								Often yes—unless the event is limited to members
+								or requires a campus ID.
+							</p>
+						</article>
+
+						<article class="info-card">
+							<h3 class="info-card__title">
+								How can I stay updated?
+							</h3>
+							<p class="info-card__text">
+								Bookmark this page and check the featured
+								section weekly to see what's trending.
+							</p>
+						</article>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<footer class="site-footer" role="contentinfo">
+			<div class="container site-footer__inner">
+				<p class="site-footer__brand">
+					<span class="brand__mark" aria-hidden="true">CE</span>
+					<span class="site-footer__name">Campus Events</span>
+				</p>
+
+				<ul class="footer-links" aria-label="Footer">
+					<li class="footer-links__item">
+						<a class="footer-links__link" href="./gallery.html"
+							>Gallery</a
+						>
+					</li>
+					<li class="footer-links__item">
+						<a class="footer-links__link" href="./packages.html"
+							>Packages</a
+						>
+					</li>
+					<li class="footer-links__item">
+						<a class="footer-links__link" href="./contact.html"
+							>Contact</a
+						>
+					</li>
+				</ul>
+
+				<p class="site-footer__copy">
+					© <span id="year">2026</span> Campus Events. All rights
+					reserved.
+				</p>
+			</div>
+		</footer>
+
+		<script>
+			(function () {
+				const toggle = document.querySelector("[data-nav-toggle]");
+				const nav = document.getElementById("primary-nav");
+
+				if (!toggle || !nav) return;
+
+				const setExpanded = (expanded) => {
+					toggle.setAttribute("aria-expanded", String(expanded));
+					nav.dataset.open = String(expanded);
+				};
+
+				setExpanded(false);
+
+				toggle.addEventListener("click", () => {
+					const expanded =
+						toggle.getAttribute("aria-expanded") === "true";
+					setExpanded(!expanded);
+				});
+
+				const year = document.getElementById("year");
+				if (year) year.textContent = String(new Date().getFullYear());
+			})();
+		</script>
+	</body>
+</html>
